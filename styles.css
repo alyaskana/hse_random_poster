@@ -20,6 +20,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Suisse Intl";
+  
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .page_wrapper {
@@ -30,7 +37,11 @@ body {
 }
 
 #blob {
-  background-color: rgb(255, 255, 255);
+  filter: saturate(1.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .poster {
@@ -38,13 +49,58 @@ body {
   aspect-ratio: 3/4;
   width: 480px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  display: flex;
-  align-items: center;
   overflow: hidden;
+  filter: saturate(1.2);
+  position: relative;
 }
 
 #litepicker {
   position: absolute;
   right: 20px;
   top: 20px;
+}
+
+.typography {
+  z-index: 10;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.typography_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.typography_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.top_left {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+
+.top_right {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.bottom_left {
+  font-weight: 600;
+  font-size: 48px;
+}
+
+.bottom_right {
+  transform-origin: bottom right;
+  transform: rotate(-90deg) translateX(100%);
+  font-size: 10px;
+  color: rgb(48, 48, 48);
 }

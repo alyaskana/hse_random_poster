@@ -9,8 +9,15 @@ import { Litepicker } from "./litepicker.js";
 
 getQueryDate() || setDateToQuery(getCurrentDate(), false);
 
+const queryParams = new URLSearchParams(window.location.search);
+console.log(getCurrentDate());
+
 const blobSize = 480;
 const date = convertDatetoSeed(getCurrentDate());
+import { randomBySeed } from "./randomBySeed.js";
+
+const random = randomBySeed(date);
+
 const path = generateBlobPath({
   size: blobSize,
   growth: 4,
@@ -20,22 +27,21 @@ const path = generateBlobPath({
 
 const svg = `<svg width=${blobSize} viewBox="0 0 ${blobSize} ${blobSize}"><defs><clipPath id="svgPath"><path d="${path}" /></clipPath></defs></svg>`;
 
-const blob = document.getElementById("blob");
-blob.innerHTML = svg;
-blob.style.clipPath = "url(#svgPath)";
+const blob = document.getElementById('blob')
+blob.innerHTML = svg
+blob.style.clipPath = 'url(#svgPath)'
+blob.style.backgroundImage = generateMeshBackground(random, 8)
+blob.style.backgroundColor = generateBackgroundColor(date)
 
-blob.style.backgroundImage = generateMeshBackground(date);
+const poster = document.getElementById('poster')
+poster.style.backgroundImage = generateMeshBackground(random, 3)
 
-blob.style.backgroundColor = generateBackgroundColor(date);
 
 const litepickerElem = document.getElementById("litepicker");
 if (litepickerElem) {
-  const queryParams = new URLSearchParams(window.location.search);
-
   new Litepicker({
     startDate: getCurrentDate(),
     element: litepickerElem,
-    inlineMode: true,
     lang: "ru-RU",
     numberOfMonths: 1,
     numberOfColumns: 1,
@@ -48,3 +54,23 @@ if (litepickerElem) {
     },
   });
 }
+
+console.log(getCurrentDate()
+  .toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "numeric",
+  })
+);
+
+const dayMonthDiv = document.getElementById('day_month')
+dayMonthDiv.innerHTML = getCurrentDate()
+  .toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "numeric",
+  })
+
+const yearDiv = document.getElementById('year')
+yearDiv.innerHTML = getCurrentDate()
+  .toLocaleDateString("en-GB", {
+    year: "numeric",
+  })

@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script> -->
-    <script type="module" src="./javascript/main.js"></script>
-    <title>Постер дня</title>
-  </head>
 
-  <body>
-    <div id="litepicker"></div>
-    <div class="page_wrapper">
-      <div class="poster">
-        <div id="blob" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script> -->
+  <script type="module" src="./javascript/main.js"></script>
+  <title>Постер дня</title>
+</head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="./javascript/main.js"></script>
+  <title>Постер дня</title>
+</head>
+
+<body>
+  <div class="page_wrapper">
+    <input id="litepicker"></input>
+    <div class="poster" id="poster">
+      <div class="typography">
+        <div class="typography_top">
+          <div class="top_left">one day<br />poster</div>
+          <div class="top_right" id="day_month"></div>
+        </div>
+        <div class="typography_bottom">
+          <div class="bottom_left" id="year"></div>
+          <div class="bottom_right">See all posters<br />@one_day_generative_poster</div>
+        </div>
       </div>
+      <div id="blob" />
     </div>
     <!-- <script>
       const picker = new Litepicker({
         element: document.getElementById("litepicker"),
       });
     </script> -->
-  </body>
+</body>
+
 </html>

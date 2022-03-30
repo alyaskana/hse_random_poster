@@ -3,7 +3,7 @@ export const generateMeshCSS = (schema) => {
 
   schema.forEach(point => {
     const { position, color } = point;
-    let ret = 'radial-gradient(at';
+    let ret = 'radial-gradient(circle at';
 
     position.forEach(positionItem => {
       ret += ` ${positionItem}%`
