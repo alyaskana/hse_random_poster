@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.page_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#blob {
+  background-color: rgb(255, 255, 255);
+}
+
+.poster {
+  border-radius: 15px;
+  aspect-ratio: 3/4;
+  width: 480px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
