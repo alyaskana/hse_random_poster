@@ -47,6 +47,7 @@ if (litepickerElem) {
     numberOfColumns: 1,
     singleMode: true,
     mobileFriendly: true,
+    format: 'DD.MM.YYYY',
     setup: (picker) => {
       picker.on("selected", ({ dateInstance }) => {
         setDateToQuery(dateInstance);
