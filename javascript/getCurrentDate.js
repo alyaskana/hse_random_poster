@@ -1,5 +1,5 @@
+import { getQueryDate } from "./getQueryDate.js";
 export const getCurrentDate = () => {
-  const queryParams = new URLSearchParams(window.location.search);
-  const queryDate = queryParams.get("date");
+  const queryDate = getQueryDate();
   return queryDate ? new Date(queryDate) : new Date();
 };

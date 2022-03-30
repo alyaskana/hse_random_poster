@@ -3,7 +3,11 @@ import { generateMeshBackground } from "./generateMeshBackground.js";
 import { generateBackgroundColor } from "./generateBackgroundColor.js";
 import { getCurrentDate } from "./getCurrentDate.js";
 import { convertDatetoSeed } from "./convertDatetoSeed.js";
+import { setDateToQuery } from "./setDateToQuery.js";
+import { getQueryDate } from "./getQueryDate.js";
 import { Litepicker } from "./litepicker.js";
+
+getQueryDate() || setDateToQuery(getCurrentDate());
 
 const blobSize = 480;
 const date = convertDatetoSeed(getCurrentDate());
@@ -39,14 +43,7 @@ if (litepickerElem) {
     mobileFriendly: true,
     setup: (picker) => {
       picker.on("selected", ({ dateInstance }) => {
-        const queryParams = new URLSearchParams(window.location.search);
-        const tzoffset = new Date().getTimezoneOffset() * 60000;
-        const localISOTime = new Date(dateInstance - tzoffset)
-          .toISOString()
-          .slice(0, 10);
-        queryParams.set("date", localISOTime);
-        history.pushState(null, null, "?" + queryParams.toString());
-        window.location.reload();
+        setDateToQuery(dateInstance);
       });
     },
   });
