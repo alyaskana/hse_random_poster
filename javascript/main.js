@@ -7,7 +7,7 @@ import { setDateToQuery } from "./setDateToQuery.js";
 import { getQueryDate } from "./getQueryDate.js";
 import { Litepicker } from "./litepicker.js";
 
-getQueryDate() || setDateToQuery(getCurrentDate());
+getQueryDate() || setDateToQuery(getCurrentDate(), false);
 
 const blobSize = 480;
 const date = convertDatetoSeed(getCurrentDate());
